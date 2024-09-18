@@ -129,7 +129,7 @@ export default function WeatherWidget() {
   return (
     <div className="flex justify-center items-center h-screen">
       {/* Center the card within the screen */}
-      <Card className="w-full max-w-md mx-auto text-center">
+      <Card className="w-full max-w-md mx-auto text-center bg-blue-300">
         {/* Card header with title and description */}
         <CardHeader>
           <CardTitle>Weather Widget</CardTitle>
@@ -140,7 +140,7 @@ export default function WeatherWidget() {
         {/* Card content including the search form and weather display */}
         <CardContent>
           {/* Form to input and submit the location */}
-          <form onSubmit={handleSearch} className="flex items-center gap-2">
+          <form onSubmit={handleSearch} className="flex items-center gap-2 ">
             <Input
               type="text"
               placeholder="Enter a city name"
@@ -150,7 +150,7 @@ export default function WeatherWidget() {
                   setLocation(e.target.value) // Update location state on input change
               }
             />
-            <Button type="submit" disabled={isLoading}>
+            <Button type="submit" className="bg-yellow-500" disabled={isLoading}>
               {isLoading ? "Loading..." : "Search"}{" "}
               {/* Show "Loading..." text while fetching data */}
             </Button>
@@ -162,19 +162,19 @@ export default function WeatherWidget() {
             <div className="mt-4 grid gap-2">
               {/* Display temperature message with icon */}
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2">
-                  <ThermometerIcon className="w-6 h-6" />
+                <div className="flex items-center gap-2 ">
+                  <ThermometerIcon className="w-6 h-6 text-red-500" />
                   {getTemperatureMessage(weather.temperature, weather.unit)}
                 </div>
               </div>
               {/* Display weather description message with icon */}
               <div className="flex items-center gap-2">
-                <CloudIcon className="w-6 h-6 " />
+                <CloudIcon className="w-6 h-6 text-blue-100" />
                 <div>{getWeatherMessage(weather.description)}</div>
               </div>
               {/* Display location message with icon */}
               <div className="flex items-center gap-2">
-                <MapPinIcon className="w-6 h-6 " />
+                <MapPinIcon className="w-6 h-6 text-purple-600" />
                 <div>{getLocationMessage(weather.location)}</div>
               </div>
             </div>
